@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataStructures.LinkedList
 {
-    public class LinkListStack <T> : LinkList<T>
+    public class LinkListStack <T> : LinkList<T> where T : IComparable<T>
     {
 
         //Stack - Insert and Delete happens at the same end. LIFO - Add to start

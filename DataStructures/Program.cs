@@ -48,17 +48,27 @@ namespace DataStructures
             //list.Add(4);
             //list.InsertAt(10, 1);
 
-            var list = new CircularLinkList<int>();
+            //var list = new CircularLinkList<int>();
 
-            list.Add(1);
-            list.Add(2);
-            list.Add(3);
-            list.Add(4);
-            list.IsCircular(list.Head);
+            //list.Add(1);
+            //list.Add(2);
+            //list.Add(3);
+            //list.Add(4);
+            //list.IsCircular(list.Head);
 
-            list.ToCirular();
+            //list.ToCirular();
 
-            list.IsCircular(list.Head);
+            //list.IsCircular(list.Head);
+
+            //var list = new LinkList<int>();
+
+            //list.Add(5);
+            //list.Add(6);
+            //list.Add(7);
+            //list.Add(1);
+            //var issorted = list.IsSortedList;
+
+            var outStr = StringOps.ReverseString("RajendraKalew");
 
         }
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataStructures.LinkedList
 {
-    public class CircularLinkList<T> : LinkList<T>
+    public class CircularLinkList<T> : LinkList<T> where T : IComparable<T>
     {
         public void ToCirular()
         {
@@ -63,6 +63,7 @@ namespace DataStructures.LinkedList
 
             return count;
         }
+
 
     }
 }

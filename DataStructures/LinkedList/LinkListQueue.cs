@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataStructures.LinkedList
 {
-    public class LinkListQueue<T>: LinkList<T>
+    public class LinkListQueue<T>: LinkList<T> where T : IComparable<T>
     {
         //Queue - Insert and Delete happens at diff ends. Insert in rear and remove from front. FIFO - Add to rear
         public void Queue(T valueToAdd)

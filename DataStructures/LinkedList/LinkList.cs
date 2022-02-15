@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace DataStructures.LinkedList
 {
 
-    public class LinkList<T>
+    public class LinkList<T> where T : IComparable<T>
     {
         protected Node<T> head;
 
@@ -108,5 +109,67 @@ namespace DataStructures.LinkedList
         }
 
 
+        public bool IsSortedList
+        {
+            get
+            {
+                if (head == null)
+                {
+                    throw new ArgumentException("Empty list.");
+                }
+                if(head.Next == null)
+                {
+                    return true;
+                }
+
+                /*
+                 *      [9,] --> [ 5, ]--> [6,]-->, [1,]
+                 * 
+                 *      Hold 
+                 */
+
+                var isSortedList = true;
+                var prevNode = head;
+                _ = prevNode.Next;
+                do
+                {
+                    Node<T> nextNode;
+                    nextNode = prevNode.Next;
+
+                    do
+                    {
+                        if (prevNode.Data.CompareTo(nextNode.Data) > 0)
+                        {
+                            isSortedList = false;
+                            break;
+                        }
+                        nextNode = nextNode.Next;
+
+                    } while (nextNode != null);
+                    if (!isSortedList) 
+                        break;
+
+                    prevNode = prevNode.Next;
+
+                } while (prevNode != null && prevNode.Next != null);
+
+                return isSortedList;
+            }
+        }
+
+        public void SortList()
+        {
+            if (head == null)
+            {
+                throw new ArgumentException("Empty list.");
+            }
+
+            /*
+             *      [9,] --> [ 5, ]--> [6,]-->, [1,]
+             * 
+             *      Hold 
+             */
+
+        }
     }
 }

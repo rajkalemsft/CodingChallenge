@@ -68,8 +68,50 @@ namespace DataStructures
             //list.Add(1);
             //var issorted = list.IsSortedList;
 
-            var outStr = StringOps.ReverseString("RajendraKalew");
+            //var outStr = StringOps.ReverseString("RajendraKalew");
 
+            //var input = new int[] { 1,2,3,4,5,6,7,8,9 };
+            //var returnValue1 = BinarySearch<int>.Search(input, 1);
+            //var returnValue2 = BinarySearch<int>.Search(input, 2);
+            //var returnValue3 = BinarySearch<int>.Search(input, 3);
+            //var returnValue4 = BinarySearch<int>.Search(input, 4);
+            //var returnValue5 = BinarySearch<int>.Search(input, 5);
+            //var returnValue6 = BinarySearch<int>.Search(input, 6);
+            //var returnValue7 = BinarySearch<int>.Search(input, 7);
+            //var returnValue8 = BinarySearch<int>.Search(input, 8);
+            //var returnValue9 = BinarySearch<int>.Search(input, 9);
+            //var returnValue10 = BinarySearch<int>.Search(input, 10);
+
+            ////var input = new string[] { "abc", "def", "hij", "klm", "nop"};
+            //var returnValue1 = BinarySearch<string>.Search(input, "abc");
+            //var returnValue2 = BinarySearch<string>.Search(input, "def");
+            //var returnValue3 = BinarySearch<string>.Search(input, "hij");
+            //var returnValue4 = BinarySearch<string>.Search(input, "klm");
+            //var returnValue5 = BinarySearch<string>.Search(input, "nop");
+            //var returnValue6 = BinarySearch<string>.Search(input, "qrs");
+            var input = new int[] { 1,2,3,4,5,6,7,8,9 };
+
+            var sum = SumListItems(input);
+
+        }
+
+        private static int SumListItems(int[] input)
+        {
+
+            return SumListItem(input, input.Length);
+        }
+
+        private static int SumListItem(int[] input, int index)
+        {
+            index--;
+            if (index < 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return input[index] + SumListItem(input, index);
+            }
         }
     }
 }

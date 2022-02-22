@@ -89,29 +89,30 @@ namespace DataStructures
             //var returnValue4 = BinarySearch<string>.Search(input, "klm");
             //var returnValue5 = BinarySearch<string>.Search(input, "nop");
             //var returnValue6 = BinarySearch<string>.Search(input, "qrs");
-            var input = new int[] { 1,2,3,4,5,6,7,8,9 };
 
-            var sum = SumListItems(input);
+
+            //var input = new int[] { 1,2,3,4,5,6,7,8,9,10 };
+
+            //var sum = Recursion.SumListItems(input);
+
+            //var input = new int[] { 1 };
+
+            //var sum = Recursion.CountNumberOfItemsInList(input);
+
+            //var input = new int[] { -1,-2,-3,-4 };
+
+            //var maxNum = Recursion.MaximumNumberInList(input);
+
+            //var input = new int[] { 5,4,1,3,18,21,-1 };
+
+            //QuickSort.Sort(input, 0 ,input.Length -1);
+
+            var input = new int[] { 56, 93, 63, 42, 54, 9, 1, 4, 6,2 };
+
+            MergeSort.Sort(input);
 
         }
 
-        private static int SumListItems(int[] input)
-        {
 
-            return SumListItem(input, input.Length);
-        }
-
-        private static int SumListItem(int[] input, int index)
-        {
-            index--;
-            if (index < 0)
-            {
-                return 0;
-            }
-            else
-            {
-                return input[index] + SumListItem(input, index);
-            }
-        }
     }
 }

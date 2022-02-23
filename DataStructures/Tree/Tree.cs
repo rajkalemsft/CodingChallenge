@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataStructures.Tree
+namespace DataStructures
 {
-    internal class Tree<T>
+    internal class Tree
     {
-        private Node Root;
+        internal Node Root;
 
         public Tree()
         {
@@ -17,14 +17,81 @@ namespace DataStructures.Tree
             Root = new Node { Data = data };
         }
 
-        public void BuildTreeFromInOrderTraversalSequence()
+        public void Add(int value)
         {
-            /*
-             *  InOrder Traversal Sequence [ 2,3,4,5,6,7,8 ]
-             *  
-             *  
-             *  
-             */ 
+            AddToTree(Root, value);
         }
+
+        private void AddToTree(Node node, int value)
+        {
+            var newNode = new Node()
+            {
+                Data = value
+            };
+
+            if (node == null)
+            {
+                node = newNode;
+                return;
+            }
+            if (node.Data < value)
+            {
+                if (node.Right != null)
+                {
+                    AddToTree(node.Right, value);
+                }
+                else
+                {
+                    node.Right = newNode;
+                }
+            }
+            if (node.Data > value)
+            {
+                if (node.Left != null)
+                {
+                    AddToTree(node.Left, value);
+                }
+                else
+                {
+                    node.Left = newNode;
+                }
+            }
+        }
+
+        public void InOrderTraversal(Node node)
+        {
+            if(node == null)
+            {
+                return;
+            }
+            InOrderTraversal(node.Left);
+            
+            Console.WriteLine(node.Data);
+
+            InOrderTraversal(node.Right);
+        }
+
+        public void PreOrderTraversal(Node node)
+        {
+            if (node == null)
+            {
+                return;
+            }
+            Console.WriteLine(node.Data);
+            PreOrderTraversal(node.Left);
+            PreOrderTraversal(node.Right);
+        }
+
+        public void PostOrderTraversal(Node node)
+        {
+            if (node == null)
+            {
+                return;
+            }
+            PostOrderTraversal(node.Left);
+            PostOrderTraversal(node.Right);
+            Console.WriteLine(node.Data);
+        }
+
     }
 }

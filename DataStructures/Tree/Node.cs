@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataStructures.Tree
+namespace DataStructures
 {
     internal class Node
     {

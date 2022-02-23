@@ -1,4 +1,5 @@
 ﻿using DataStructures.LinkedList;
+using System.Collections;
 
 namespace DataStructures
 {
@@ -107,9 +108,17 @@ namespace DataStructures
 
             //QuickSort.Sort(input, 0 ,input.Length -1);
 
-            var input = new int[] { 56, 93, 63, 42, 54, 9, 1, 4, 6,2 };
+            //var input = new int[] { 56, 93, 63, 42, 54, 9, 1, 4, 6,2 };
 
-            MergeSort.Sort(input);
+            //MergeSort.Sort(input);
+
+            var temp = new Hashtable();
+            temp.Add("a", 1);
+            temp.Add("b", 2);
+            temp.Add("c", 3);
+            temp.Add("d", 4);
+            temp.Add("a", 7);
+
 
         }
 

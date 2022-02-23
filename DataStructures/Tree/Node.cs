@@ -4,10 +4,10 @@ using System.Text;
 
 namespace DataStructures.Tree
 {
-    internal class Node <T>
+    internal class Node
     {
-        public T Data { get; set; }
-        public Node<T> Left { get; set; }
-        public Node<T> Right { get; set; }
+        public int Data { get; set; }
+        public Node Left { get; set; }
+        public Node Right { get; set; }
     }
 }

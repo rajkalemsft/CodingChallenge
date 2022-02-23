@@ -6,15 +6,15 @@ namespace DataStructures.Tree
 {
     internal class Tree<T>
     {
-        private Node<T> Root;
+        private Node Root;
 
         public Tree()
         {
 
         }
-        public Tree(T data)
+        public Tree(int data)
         {
-            Root = new Node<T> { Data = data };
+            Root = new Node { Data = data };
         }
 
         public void BuildTreeFromInOrderTraversalSequence()

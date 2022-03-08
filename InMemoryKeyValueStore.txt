@@ -1,0 +1,48 @@
+/*
+Description:
+Implement an in-memory key-value store, for storing a value in a specific path.
+Definitions:
+- Path is a "/" separated string (e.g. "/first_level/second_level")
+- Value are all strings (e.g. "first_level_value")
+- The root with path "/" should have a value of "#"
+API:
+- get(path): String -> returns the value of a the node at the given path
+- set(path, value) -> changes the value of a given node to the new value. Should error out if the path does not currently exist
+- create(path, value) -> creates a new node and sets it to the given value. Should error out if the node already exists or if the node’s parent does not exist.
+                         That is /level1/level2 cannot be created if /level1 has not already been created.
+- delete(path) -> deletes a node, but ONLY if it has no children
+Clarification:
+- get(): a user can only retrieve value from an existing node in the path.
+- set(): a user can only set the value on an existing node. Cannot set root's value.
+- create(): a user can only create node one level deeper than the existing node.
+- delete(): a user can only delete node without children. Cannot delete root.
+For Example:
+1. Create a first_level node.
+   TreeKv tree_kv = new TreeKv();            // => /:#
+   tree_kv.create("/first_level", "value1"); // => /:# and /first_level:value1
+   tree_kv.create("/sibling", "value2");     // => /:# and /first_level:value1 and /sibling:value2
+   tree_kv.get("/first_level");              // => returns "value1"
+2. Create a first_level node first, then a second_level node.
+   TreeKv tree_kv = new TreeKv();                          // => /:#
+   tree_kv.create("/first", "value1");                     // => /:# and /first:value1
+   tree_kv.create("/first/second", "value2");              // => /:# and /first:value1 and /first/second:value2
+   tree_kv.create("/first/second", "value3");              // => raise Exception() because second level already exists
+   tree_kv.create("/first/second/third/fourth", "value4"); // => raise Exception() because third level doesn't exist
+3. Create a first_level node. Change its value.
+   TreeKv tree_kv = new TreeKv();           // => /:#
+   tree_kv.create("/first_level", "value"); // => /:# and /first_level:value
+   tree_kv.set("/first_level", "new");      // => /:# and /first_level:new
+   tree_kv.set("/sibling", "value2");       // => raise Exception() because node "sibling" does not exist yet
+   tree_kv.set("/", "root value");          // => raise Exception() because root's value cannot be modified
+   tree_kv.get("/first_level");             // => returns "new"
+4. Delete a node with no children
+   TreeKv tree_kv = new TreeKv();             // => /:#
+   tree_kv.create("/first", "value1");        // => /:# and /first:value1
+   tree_kv.create("/first/second", "value2"); // => /:# and /first:value1 and /first/second:value2
+   tree_kv.create("/first/third", "value3");  // => /:# and /first:value1 and /first/second:value2 and /first/third:value3
+   tree_kv.delete("/first");                  // => raise Exception() because /first has children /first/second and /first/third
+   tree_kv.delete("/first/third");            // => /:# and /first:value1 and /first/second:value2
+   tree_kv.delete("/first");                  // => raise Exception() because /first has a child /first/second
+   tree_kv.delete("/first/second");           // => /:# and /first:value1
+   tree_kv.delete("/first");                  // => /:#
+*/

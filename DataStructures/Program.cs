@@ -113,21 +113,21 @@ namespace DataStructures
             //MergeSort.Sort(input);
 
 
-            var tree = new Tree(10);
-            tree.Add(8);
-            tree.Add(9);
-            tree.Add(4);
-            tree.Add(5);
-            tree.Add(3);
-            tree.Add(17);
-            tree.Add(14);
-            tree.Add(11);
-            tree.Add(12);
-            tree.Add(19);
-            tree.Add(18);
-            tree.Add(20);
+            //var tree = new Tree(10);
+            //tree.Add(8);
+            //tree.Add(9);
+            //tree.Add(4);
+            //tree.Add(5);
+            //tree.Add(3);
+            //tree.Add(17);
+            //tree.Add(14);
+            //tree.Add(11);
+            //tree.Add(12);
+            //tree.Add(19);
+            //tree.Add(18);
+            //tree.Add(20);
 
-            var q =tree.InOrderTraversal(tree.Root, null);
+            //tree.InOrderTraversal(tree.Root);
 
         }
 

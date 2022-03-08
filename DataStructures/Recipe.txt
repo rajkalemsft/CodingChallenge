@@ -1,2 +1,0 @@
-
-// Given a backend system for a cooking website. Write a method that returns recipes ranked by ingredients a user has at home.

@@ -10,6 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Problems", "Problems", "{33A5BB23-964A-416E-80D1-1260FFD56DDE}"
+	ProjectSection(SolutionItems) = preProject
+		InMemoryKeyValueStore.txt = InMemoryKeyValueStore.txt
+		Recipe.txt = Recipe.txt
+		WebCrawler.txt = WebCrawler.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +30,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{33A5BB23-964A-416E-80D1-1260FFD56DDE} = {040674EC-E9BD-4383-92C5-DFA6B54F108D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E32977BE-5452-4931-BE97-F059EFCCE93D}

@@ -128,6 +128,25 @@ namespace DataStructures
             //tree.Add(20);
 
             //tree.InOrderTraversal(tree.Root);
+            try
+            {
+                var tree = new TreeKv();
+                tree.Create("/first_level", "value1");
+                tree.Create("/sibling", "value2");
+                tree.Create("/first", "value1");
+                tree.Create("/first/second", "value2");
+                tree.Create("/first/third", "value3");
+                var value =tree.Get("/first/third");
+                var value1 =tree.Set("/first/third", "valueReplaced");
+                tree.Delete("/first/second");
+                tree.Delete("/fourth");
+
+            }
+            catch (System.Exception ex)
+            {
+
+            }
+            
 
         }
 

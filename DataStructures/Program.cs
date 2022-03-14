@@ -1,5 +1,8 @@
 ﻿using DataStructures.LinkedList;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DataStructures
 {
@@ -7,103 +10,137 @@ namespace DataStructures
 	{
 		static void Main(string[] args)
 		{
-            //var arr = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            //string[] planets1 = { "Mercury", "Venus", "Earth", "Jupiter" };
+            //string[] planets2 = { "Mercury", "Earth", "Mars", "Jupiter" };
 
-            //ArrayOps.RotateArray(arr, 4);
+            //IEnumerable<string> query = planets1.Intersect(planets2).ToList();
 
-            //var arr = new int[10] { -1, -1, 6, 1, 9, 3, 2, -1, 4, -1 };
+            //foreach (var str in query)
+            //{
+            //    Console.WriteLine(str);
+            //}
 
-            //ArrayOps.RearrangeArray(arr);
+            #region RorateArray by 'N' elements
 
-            //var arr = new int[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            var arr = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-            //ArrayOps.ReverseArray(arr);
+            ArrayOps.RotateArray(arr, 4);
+
+            #endregion
+
+            #region Rearrange array to have elements with matching index, in case element is not found in array have it as -1
+            var arrToarrange = new int[10] { -1, -1, 6, 1, 9, 3, 2, -1, 4, -1 };
+
+            ArrayOps.RearrangeArray(arrToarrange);
+            #endregion
+
+            #region Reverse Array
+            var arrToReverse = new int[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            ArrayOps.ReverseArray(arrToReverse);
 
             //var arr2 = new int[8] { 1, 2, 3, 4, 5, 6, 7, 8 };
 
             //ArrayOps.ReverseArray(arr2);
+            #endregion
 
+            #region Generic Queue
+            var queue = new LinkListQueue<double>();
+            queue.Queue(1.1);
+            queue.Queue(2.1);
+            queue.Queue(3.1);
+            queue.Queue(4.1);
 
-            //var queue = new LinkListQueue<double>();
-            //queue.Queue(1.1);
-            //queue.Queue(2.1);
-            //queue.Queue(3.1);
-            //queue.Queue(4.1);
+            queue.DeQueue();
+            #endregion
 
-            //queue.DeQueue();
+            #region Generic Stack
+            var stack = new LinkListStack<double>();
 
-            //var stack = new LinkListStack<double>();
+            stack.Push(1.1);
+            stack.Push(2.1);
+            stack.Push(3.1);
+            stack.Push(4.1);
+            stack.Pop();
+            #endregion
 
-            //stack.Push(1.1);
-            //stack.Push(2.1);
-            //stack.Push(3.1);
-            //stack.Push(4.1);
-            //stack.Pop();
+            #region Singly LinkedList Insert
+            var list = new LinkList<int>();
 
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.InsertAt(10, 1);
+            #endregion
 
-            //var list = new LinkList<int>();
+            #region Circular Linked List
+            var circularList = new CircularLinkList<int>();
 
-            //list.Add(1);
-            //list.Add(2);
-            //list.Add(3);
-            //list.Add(4);
-            //list.InsertAt(10, 1);
+            circularList.Add(1);
+            circularList.Add(2);
+            circularList.Add(3);
+            circularList.Add(4);
+            circularList.IsCircular(list.Head);
 
-            //var list = new CircularLinkList<int>();
+            circularList.ToCirular();
 
-            //list.Add(1);
-            //list.Add(2);
-            //list.Add(3);
-            //list.Add(4);
-            //list.IsCircular(list.Head);
+            circularList.IsCircular(list.Head);
 
-            //list.ToCirular();
+            #endregion
 
-            //list.IsCircular(list.Head);
+            #region Sorted Linked List
+            var listTocheck = new LinkList<int>();
 
-            //var list = new LinkList<int>();
+            listTocheck.Add(5);
+            listTocheck.Add(6);
+            listTocheck.Add(7);
+            listTocheck.Add(1);
 
-            //list.Add(5);
-            //list.Add(6);
-            //list.Add(7);
-            //list.Add(1);
-            //var issorted = list.IsSortedList;
+            var issorted = listTocheck.IsSortedList;
+            #endregion
 
-            //var outStr = StringOps.ReverseString("RajendraKalew");
+            #region String Reversal
+            var outStr = StringOps.ReverseString("RajendraKalew");
 
-            //var input = new int[] { 1,2,3,4,5,6,7,8,9 };
-            //var returnValue1 = BinarySearch<int>.Search(input, 1);
-            //var returnValue2 = BinarySearch<int>.Search(input, 2);
-            //var returnValue3 = BinarySearch<int>.Search(input, 3);
-            //var returnValue4 = BinarySearch<int>.Search(input, 4);
-            //var returnValue5 = BinarySearch<int>.Search(input, 5);
-            //var returnValue6 = BinarySearch<int>.Search(input, 6);
-            //var returnValue7 = BinarySearch<int>.Search(input, 7);
-            //var returnValue8 = BinarySearch<int>.Search(input, 8);
-            //var returnValue9 = BinarySearch<int>.Search(input, 9);
-            //var returnValue10 = BinarySearch<int>.Search(input, 10);
+            #endregion
 
-            ////var input = new string[] { "abc", "def", "hij", "klm", "nop"};
-            //var returnValue1 = BinarySearch<string>.Search(input, "abc");
-            //var returnValue2 = BinarySearch<string>.Search(input, "def");
-            //var returnValue3 = BinarySearch<string>.Search(input, "hij");
-            //var returnValue4 = BinarySearch<string>.Search(input, "klm");
-            //var returnValue5 = BinarySearch<string>.Search(input, "nop");
-            //var returnValue6 = BinarySearch<string>.Search(input, "qrs");
+            #region Binry Search
+            var input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            var returnValue1 = BinarySearch<int>.Search(input, 1);
+            var returnValue2 = BinarySearch<int>.Search(input, 2);
+            var returnValue3 = BinarySearch<int>.Search(input, 3);
+            var returnValue4 = BinarySearch<int>.Search(input, 4);
+            var returnValue5 = BinarySearch<int>.Search(input, 5);
+            var returnValue6 = BinarySearch<int>.Search(input, 6);
+            var returnValue7 = BinarySearch<int>.Search(input, 7);
+            var returnValue8 = BinarySearch<int>.Search(input, 8);
+            var returnValue9 = BinarySearch<int>.Search(input, 9);
+            var returnValue10 = BinarySearch<int>.Search(input, 10);
 
+            var inputStrArr = new string[] { "abc", "def", "hij", "klm", "nop"};
+            var returnValue11 = BinarySearch<string>.Search(inputStrArr, "abc");
+            var returnValue21 = BinarySearch<string>.Search(inputStrArr, "def");
+            var returnValue31 = BinarySearch<string>.Search(inputStrArr, "hij");
+            var returnValue41 = BinarySearch<string>.Search(inputStrArr, "klm");
+            var returnValue51 = BinarySearch<string>.Search(inputStrArr, "nop");
+            var returnValue61 = BinarySearch<string>.Search(inputStrArr, "qrs");
+            #endregion
 
-            //var input = new int[] { 1,2,3,4,5,6,7,8,9,10 };
+            #region Recursion
+            var sumList = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            //var sum = Recursion.SumListItems(input);
+            var sum = Recursion.SumListItems(sumList);
 
-            //var input = new int[] { 1 };
+            var countList = new int[] { 1 };
 
-            //var sum = Recursion.CountNumberOfItemsInList(input);
+            var count = Recursion.CountNumberOfItemsInList(countList);
 
-            //var input = new int[] { -1,-2,-3,-4 };
+            var maxList = new int[] { -1, -2, -3, -4 };
 
-            //var maxNum = Recursion.MaximumNumberInList(input);
+            var maxNum = Recursion.MaximumNumberInList(maxList);
 
+            #endregion
             //var input = new int[] { 5,4,1,3,18,21,-1 };
 
             //QuickSort.Sort(input, 0 ,input.Length -1);
@@ -128,26 +165,34 @@ namespace DataStructures
             //tree.Add(20);
 
             //tree.InOrderTraversal(tree.Root);
-            try
-            {
-                var tree = new TreeKv();
-                tree.Create("/first_level", "value1");
-                tree.Create("/sibling", "value2");
-                tree.Create("/first", "value1");
-                tree.Create("/first/second", "value2");
-                tree.Create("/first/third", "value3");
-                var value =tree.Get("/first/third");
-                var value1 =tree.Set("/first/third", "valueReplaced");
-                tree.Delete("/first/second");
-                tree.Delete("/fourth");
+            //try
+            //{
+            //    var tree = new TreeKv();
+            //    tree.Create("/first_level", "value1");
+            //    tree.Create("/sibling", "value2");
+            //    tree.Create("/first", "value1");
+            //    tree.Create("/first/second", "value2");
+            //    tree.Create("/first/third", "value3");
+            //    var value =tree.Get("/first/third");
+            //    var value1 =tree.Set("/first/third", "valueReplaced");
+            //    tree.Delete("/first/second");
+            //    tree.Delete("/fourth");
 
-            }
-            catch (System.Exception ex)
-            {
+            //}
+            //catch (System.Exception ex)
+            //{
 
-            }
-            
+            //}
 
+            SinglyLinkedList llist = new SinglyLinkedList();
+
+            llist.InsertNode(1);
+            llist.InsertNode(2);
+            llist.InsertNode(3);
+            llist.InsertNode(4);
+            llist.InsertNode(5);
+
+            llist.Reverse();
         }
 
 

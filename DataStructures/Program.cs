@@ -1,5 +1,8 @@
 ﻿using DataStructures.LinkedList;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DataStructures
 {
@@ -128,28 +131,70 @@ namespace DataStructures
             //tree.Add(20);
 
             //tree.InOrderTraversal(tree.Root);
-            try
-            {
-                var tree = new TreeKv();
-                tree.Create("/first_level", "value1");
-                tree.Create("/sibling", "value2");
-                tree.Create("/first", "value1");
-                tree.Create("/first/second", "value2");
-                tree.Create("/first/third", "value3");
-                var value =tree.Get("/first/third");
-                var value1 =tree.Set("/first/third", "valueReplaced");
-                tree.Delete("/first/second");
-                tree.Delete("/fourth");
+            //try
+            //{
+            //    var tree = new TreeKv();
+            //    tree.Create("/first_level", "value1");
+            //    tree.Create("/sibling", "value2");
+            //    tree.Create("/first", "value1");
+            //    tree.Create("/first/second", "value2");
+            //    tree.Create("/first/third", "value3");
+            //    var value =tree.Get("/first/third");
+            //    var value1 =tree.Set("/first/third", "valueReplaced");
+            //    tree.Delete("/first/second");
+            //    tree.Delete("/fourth");
 
-            }
-            catch (System.Exception ex)
-            {
+            //}
+            //catch (System.Exception ex)
+            //{
 
-            }
-            
+            //}
+            var temp = Math.Round((decimal)3/6, 6);
+            //Result.plusMinus(new List<int> { -4, 3, -9, 0, 4, 1});
 
         }
 
 
     }
+
+    class Result
+    {
+
+    /*
+     * Complete the 'plusMinus' function below.
+     *
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+
+    public static void plusMinus(List<int> arr)
+    {
+        if (arr.Count() == 0)
+        {
+            return;
+        }
+
+        int positiveNumbers = 0;
+        int negativeNumbers = 0;
+        int zeroNumbers = 0;
+        foreach (var number in arr)
+        {
+            if (number > 0)
+            {
+                positiveNumbers++;
+            }
+            else if (number < 0)
+            {
+                negativeNumbers++;
+            }
+            else
+            {
+                zeroNumbers++;
+            }
+        }
+        Console.WriteLine($"Positive: {Math.Round((double)positiveNumbers / (double)arr.Count(),6)}");
+        Console.WriteLine($"Negative: {Math.Round((double)negativeNumbers / arr.Count(), 6)}");
+        Console.WriteLine($"Zero: {Math.Round((double)zeroNumbers / arr.Count(), 6)}");
+    }
+
+}
 }

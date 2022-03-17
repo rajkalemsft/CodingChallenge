@@ -7,194 +7,206 @@ using System.Linq;
 namespace DataStructures
 {
     class Program
-	{
-		static void Main(string[] args)
-		{
-            //var arr = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    {
+        static void Main(string[] args)
+        {
+            //string[] planets1 = { "Mercury", "Venus", "Earth", "Jupiter" };
+            //string[] planets2 = { "Mercury", "Earth", "Mars", "Jupiter" };
 
-            //ArrayOps.RotateArray(arr, 4);
+            //IEnumerable<string> query = planets1.Intersect(planets2).ToList();
 
-            //var arr = new int[10] { -1, -1, 6, 1, 9, 3, 2, -1, 4, -1 };
+            //foreach (var str in query)
+            //{
+            //    Console.WriteLine(str);
+            //}
 
-            //ArrayOps.RearrangeArray(arr);
+            #region RorateArray by 'N' elements
 
-            //var arr = new int[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            var arr = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-            //ArrayOps.ReverseArray(arr);
+            ArrayOps.RotateArray(arr, 4);
+
+            #endregion
+
+            #region Rearrange array to have elements with matching index, in case element is not found in array have it as -1
+            var arrToarrange = new int[10] { -1, -1, 6, 1, 9, 3, 2, -1, 4, -1 };
+
+            ArrayOps.RearrangeArray(arrToarrange);
+            #endregion
+
+            #region Reverse Array
+            var arrToReverse = new int[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            ArrayOps.ReverseArray(arrToReverse);
 
             //var arr2 = new int[8] { 1, 2, 3, 4, 5, 6, 7, 8 };
 
             //ArrayOps.ReverseArray(arr2);
+            #endregion
 
+            #region Generic Queue
+            var queue = new LinkListQueue<double>();
+            queue.Queue(1.1);
+            queue.Queue(2.1);
+            queue.Queue(3.1);
+            queue.Queue(4.1);
 
-            //var queue = new LinkListQueue<double>();
-            //queue.Queue(1.1);
-            //queue.Queue(2.1);
-            //queue.Queue(3.1);
-            //queue.Queue(4.1);
+            queue.DeQueue();
+            #endregion
 
-            //queue.DeQueue();
+            #region Generic Stack
+            var stack = new LinkListStack<double>();
 
-            //var stack = new LinkListStack<double>();
+            stack.Push(1.1);
+            stack.Push(2.1);
+            stack.Push(3.1);
+            stack.Push(4.1);
+            stack.Pop();
+            #endregion
 
-            //stack.Push(1.1);
-            //stack.Push(2.1);
-            //stack.Push(3.1);
-            //stack.Push(4.1);
-            //stack.Pop();
+            #region LinkedList
+            SinglyLinkedList llist = new SinglyLinkedList();
 
+            llist.InsertNode(1);
+            llist.InsertNode(2);
+            llist.InsertNode(3);
+            llist.InsertNode(4);
+            llist.InsertNode(5);
 
-            //var list = new LinkList<int>();
+            llist.Reverse();
+            var list = new LinkList<int>();
 
-            //list.Add(1);
-            //list.Add(2);
-            //list.Add(3);
-            //list.Add(4);
-            //list.InsertAt(10, 1);
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.InsertAt(10, 1);
 
-            //var list = new CircularLinkList<int>();
+            var circularList = new CircularLinkList<int>();
 
-            //list.Add(1);
-            //list.Add(2);
-            //list.Add(3);
-            //list.Add(4);
-            //list.IsCircular(list.Head);
+            circularList.Add(1);
+            circularList.Add(2);
+            circularList.Add(3);
+            circularList.Add(4);
+            circularList.IsCircular(list.Head);
 
-            //list.ToCirular();
+            circularList.ToCirular();
 
-            //list.IsCircular(list.Head);
+            circularList.IsCircular(list.Head);
 
-            //var list = new LinkList<int>();
+            var listTocheck = new LinkList<int>();
 
-            //list.Add(5);
-            //list.Add(6);
-            //list.Add(7);
-            //list.Add(1);
-            //var issorted = list.IsSortedList;
+            listTocheck.Add(5);
+            listTocheck.Add(6);
+            listTocheck.Add(7);
+            listTocheck.Add(1);
 
-            //var outStr = StringOps.ReverseString("RajendraKalew");
+            var issorted = listTocheck.IsSortedList;
+            #endregion
 
-            //var input = new int[] { 1,2,3,4,5,6,7,8,9 };
-            //var returnValue1 = BinarySearch<int>.Search(input, 1);
-            //var returnValue2 = BinarySearch<int>.Search(input, 2);
-            //var returnValue3 = BinarySearch<int>.Search(input, 3);
-            //var returnValue4 = BinarySearch<int>.Search(input, 4);
-            //var returnValue5 = BinarySearch<int>.Search(input, 5);
-            //var returnValue6 = BinarySearch<int>.Search(input, 6);
-            //var returnValue7 = BinarySearch<int>.Search(input, 7);
-            //var returnValue8 = BinarySearch<int>.Search(input, 8);
-            //var returnValue9 = BinarySearch<int>.Search(input, 9);
-            //var returnValue10 = BinarySearch<int>.Search(input, 10);
+            #region String Reversal
+            var outStr = StringOps.ReverseString("RajendraKalew");
 
-            ////var input = new string[] { "abc", "def", "hij", "klm", "nop"};
-            //var returnValue1 = BinarySearch<string>.Search(input, "abc");
-            //var returnValue2 = BinarySearch<string>.Search(input, "def");
-            //var returnValue3 = BinarySearch<string>.Search(input, "hij");
-            //var returnValue4 = BinarySearch<string>.Search(input, "klm");
-            //var returnValue5 = BinarySearch<string>.Search(input, "nop");
-            //var returnValue6 = BinarySearch<string>.Search(input, "qrs");
+            #endregion
 
+            #region Binry Search
+            var input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            var returnValue1 = BinarySearch<int>.Search(input, 1);
+            var returnValue2 = BinarySearch<int>.Search(input, 2);
+            var returnValue3 = BinarySearch<int>.Search(input, 3);
+            var returnValue4 = BinarySearch<int>.Search(input, 4);
+            var returnValue5 = BinarySearch<int>.Search(input, 5);
+            var returnValue6 = BinarySearch<int>.Search(input, 6);
+            var returnValue7 = BinarySearch<int>.Search(input, 7);
+            var returnValue8 = BinarySearch<int>.Search(input, 8);
+            var returnValue9 = BinarySearch<int>.Search(input, 9);
+            var returnValue10 = BinarySearch<int>.Search(input, 10);
 
-            //var input = new int[] { 1,2,3,4,5,6,7,8,9,10 };
+            var inputStrArr = new string[] { "abc", "def", "hij", "klm", "nop" };
+            var returnValue11 = BinarySearch<string>.Search(inputStrArr, "abc");
+            var returnValue21 = BinarySearch<string>.Search(inputStrArr, "def");
+            var returnValue31 = BinarySearch<string>.Search(inputStrArr, "hij");
+            var returnValue41 = BinarySearch<string>.Search(inputStrArr, "klm");
+            var returnValue51 = BinarySearch<string>.Search(inputStrArr, "nop");
+            var returnValue61 = BinarySearch<string>.Search(inputStrArr, "qrs");
+            #endregion
 
-            //var sum = Recursion.SumListItems(input);
+            #region Recursion
+            var sumList = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            //var input = new int[] { 1 };
+            var sum = Recursion.SumListItems(sumList);
 
-            //var sum = Recursion.CountNumberOfItemsInList(input);
+            var countList = new int[] { 1 };
 
-            //var input = new int[] { -1,-2,-3,-4 };
+            var count = Recursion.CountNumberOfItemsInList(countList);
 
-            //var maxNum = Recursion.MaximumNumberInList(input);
+            var maxList = new int[] { -1, -2, -3, -4 };
 
-            //var input = new int[] { 5,4,1,3,18,21,-1 };
+            var maxNum = Recursion.MaximumNumberInList(maxList);
 
-            //QuickSort.Sort(input, 0 ,input.Length -1);
+            #endregion
 
-            //var input = new int[] { 56, 93, 63, 42, 54, 9, 1, 4, 6,2 };
+            #region Sorting
+            var inputArr = new int[] { 5, 4, 1, 3, 18, 21, -1 };
 
-            //MergeSort.Sort(input);
+            QuickSort.Sort(inputArr, 0, inputArr.Length - 1);
 
+            var inputArr2 = new int[] { 56, 93, 63, 42, 54, 9, 1, 4, 6, 2 };
 
-            //var tree = new Tree(10);
-            //tree.Add(8);
-            //tree.Add(9);
-            //tree.Add(4);
-            //tree.Add(5);
-            //tree.Add(3);
-            //tree.Add(17);
-            //tree.Add(14);
-            //tree.Add(11);
-            //tree.Add(12);
-            //tree.Add(19);
-            //tree.Add(18);
-            //tree.Add(20);
+            MergeSort.Sort(inputArr2);
 
-            //tree.InOrderTraversal(tree.Root);
-            //try
-            //{
-            //    var tree = new TreeKv();
-            //    tree.Create("/first_level", "value1");
-            //    tree.Create("/sibling", "value2");
-            //    tree.Create("/first", "value1");
-            //    tree.Create("/first/second", "value2");
-            //    tree.Create("/first/third", "value3");
-            //    var value =tree.Get("/first/third");
-            //    var value1 =tree.Set("/first/third", "valueReplaced");
-            //    tree.Delete("/first/second");
-            //    tree.Delete("/fourth");
+            #endregion
 
-            //}
-            //catch (System.Exception ex)
-            //{
+            #region Tree Traversal
 
-            //}
-            var temp = Math.Round((decimal)3/6, 6);
+            var tree = new Tree(10);
+            tree.Add(8);
+            tree.Add(9);
+            tree.Add(4);
+            tree.Add(5);
+            tree.Add(3);
+            tree.Add(17);
+            tree.Add(14);
+            tree.Add(11);
+            tree.Add(12);
+            tree.Add(19);
+            tree.Add(18);
+            tree.Add(20);
+
+            tree.InOrderTraversal(tree.Root);
+            tree.PreOrderTraversal(tree.Root);
+            tree.PostOrderTraversal(tree.Root);
+
+            #endregion
+
+            #region Tree Key Value Store
+            try
+            {
+                var treekv = new TreeKv();
+                treekv.Create("/first_level", "value1");
+                treekv.Create("/sibling", "value2");
+                treekv.Create("/first", "value1");
+                treekv.Create("/first/second", "value2");
+                treekv.Create("/first/third", "value3");
+                var value = treekv.Get("/first/third");
+                var value1 = treekv.Set("/first/third", "valueReplaced");
+                treekv.Delete("/first/second");
+                treekv.Delete("/fourth");
+
+            }
+            catch (System.Exception ex)
+            {
+
+            }
+
+            #endregion
+
+            var temp = Math.Round((decimal)3 / 6, 6);
             //Result.plusMinus(new List<int> { -4, 3, -9, 0, 4, 1});
 
+          
         }
-
 
     }
 
-    class Result
-    {
-
-    /*
-     * Complete the 'plusMinus' function below.
-     *
-     * The function accepts INTEGER_ARRAY arr as parameter.
-     */
-
-    public static void plusMinus(List<int> arr)
-    {
-        if (arr.Count() == 0)
-        {
-            return;
-        }
-
-        int positiveNumbers = 0;
-        int negativeNumbers = 0;
-        int zeroNumbers = 0;
-        foreach (var number in arr)
-        {
-            if (number > 0)
-            {
-                positiveNumbers++;
-            }
-            else if (number < 0)
-            {
-                negativeNumbers++;
-            }
-            else
-            {
-                zeroNumbers++;
-            }
-        }
-        Console.WriteLine($"Positive: {Math.Round((double)positiveNumbers / (double)arr.Count(),6)}");
-        Console.WriteLine($"Negative: {Math.Round((double)negativeNumbers / arr.Count(), 6)}");
-        Console.WriteLine($"Zero: {Math.Round((double)zeroNumbers / arr.Count(), 6)}");
-    }
-
-}
 }

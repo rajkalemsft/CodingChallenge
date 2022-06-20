@@ -1,12 +1,37 @@
-Program to efficiently process the text files to remove restricetd words. The files are continously being generated, so the process needs to be efficient to avoid backlog.
+/*
+Imagine a (non-engineer) coworker has given you a large plaintext document redact_me.txt. 
+This file contains certain sensitive words that need to be redacted from it. 
+Write a program that will create a redacted version of this document, based on 
+an additional plaintext banned_words.txt file.
 
-Input
-1. Large list of text files to be processed *File size can be 1MB-1GB.
-2. File with list of restricetd words (File size can be large, single word per line)
+Example input 'redact_me.txt':
+======================================
+I DO NOT LIKE green eggs and ham
 
-Process all the provided input files to replace the restricetd words tagged as <squash>restricetd words</squash>
+Not in a box not with a fox
+Not in a house not with a mouse
 
 
-Output:
-1. Files with exact same content except the restricted words tagged as <squash>restricetd words</squash>
+Example input 'banned_words.txt':
+======================================
+fox
+egg
+toybox
+not
 
+
+Example 'redacted' output:
+======================================
+I DO _REDACTED_ LIKE green eggs and ham
+
+_REDACTED_ in a box _REDACTED_ with a _REDACTED_
+_REDACTED_ in a house _REDACTED_ with a mouse
+
+// Can this file - English, 
+//Size - REadactMe file can be large 100 GB, Both could be large
+// FileStorage - Accessible
+// 
+*/
+/// REadthe Banned file and keep the content in collection --> You could cache it.
+
+//O(n) 

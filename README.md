@@ -1,4 +1,4 @@
-**"# Coding Challenge" **
+**Coding Challenge**
 
 1. WebCrawler.txt --> Search for pre-defined strings, sort and order by the top 'N' finds.
 
@@ -11,7 +11,7 @@
 5. RefactorInventorySystem.txt --> Interesting problem to re-design a system, keep both old and new systems running in parallel before the old one retires eventually.
 
 
-**"# System design" **
+**System design**
 
 **1. Tiny URL (Asked Three times)**
 

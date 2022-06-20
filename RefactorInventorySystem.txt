@@ -1,0 +1,91 @@
+
+
+Please use this Google doc during your interview (your interviewer will see what you write here). To free your hands for typing, we recommend using a headset or speakerphone.
+
+Design a system that provides a more reliable view of an unreliable inventory system. The system would only need to support on team, so it only needs to serve a subset of the operations and data in the original service.
+
+The search criteria 
+location, product_id, quantity
+
+Key-value lookup
+
+Operations to support (from the user’s perspective)
+•	read
+•	consume
+
+
+•	Other subsystem to update the inventory
+•	Product and location static
+•	QPS 10/S both read and write
+
+Entities
+•	WareHouse { WareHouseId, Name, LocationId} 
+•	Location { LocationId, AddressDetails}
+•	Product { ProductId, Name, Quantity}
+
+API Consumers
+•	 Software Systems 
+
+API
+•	Inventory/{warehouseId}/{ProductId} – > 
+{
+	WareHouseId,
+	WareHouseName,
+	ProductId,
+	ProductName,
+	AvailableQuantity
+}
+
+
+•	Inventory/Consume/{warehouseId}/{ProductId}/
+{
+	ProductId,
+	Qty
+}
+
+Storage
+•	NoSQL WarehosueId/ProductId
+
+Before the new layer
+new system:X -> 10
+new system:X -> XXX
+new system:X-5 -> XXX 
+new system:X -> 10
+old system:X+5 -> 15
+
+After the new layer
+new system:X -> 10
+new system:X-5 -> 5
+new system:X -> 5
+old system:X+ 5 -> 10
+new system:X -> 10
+
+Reliability
+- Load Balancer  → API Nodes  → 
+  Storage API → Cache → NoSQL OR Talk to Old System
+
+Read Flow 
+- Load Balancer  → API Nodes  → 
+  Storage API → Cache → NoSQL 
+
+Write Flow
+
+- Load Balancer  → API Nodes  → 
+  Storage API → NoSQL  → Raise an update event with required data → Pub-Sub Processor  → Update the cache for a particular Warehouse or Prod
+
+Sync Processor
+– Modify the old system to raise an update event → This way new system aca consume and update required storage cache/nosql
+– New system can query - pull options
+
+
+NEw system -
+P1 -  10 - 03:00:01  - O 10 - 03:00:01
+
+5 -> P1 -  5 - 03:00:02:100  - O 15 - 03:00:02:150 → send an event addition of 5
+
+P1 -  10 - 03:00:02:100       - O 15 - 03:00:02:150
+
+5 -> P1 -  10 - 03:00:02:100  - O 15 - 03:00:02:99 → send an event addition of 5
+
+P1 -  15 - 03:00:02:100       - O 15 - 03:00:02:100
+

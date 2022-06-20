@@ -1,0 +1,12 @@
+Program to efficiently process the text files to remove restricetd words. The files are continously being generated, so the process needs to be efficient to avoid backlog.
+
+Input
+1. Large list of text files to be processed *File size can be 1MB-1GB.
+2. File with list of restricetd words (File size can be large, single word per line)
+
+Process all the provided input files to replace the restricetd words tagged as <squash>restricetd words</squash>
+
+
+Output:
+1. Files with exact same content except the restricted words tagged as <squash>restricetd words</squash>
+

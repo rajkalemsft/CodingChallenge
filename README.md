@@ -8,6 +8,7 @@
 
 4. ReadactFiles.txt --> Process large amount of text files for restricetd words.
 
+5. RefactorInventorySystem.txt --> Interesting problem to re-design a system, keep both old and new systems running in parallel before the old one retires eventually.
 
 
 **"# System design" **

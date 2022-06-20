@@ -1,4 +1,4 @@
-"# Coding Challenge" 
+**"# Coding Challenge" **
 
 1. WebCrawler.txt --> Search for pre-defined strings, sort and order by the top 'N' finds.
 
@@ -8,7 +8,9 @@
 
 4. ReadactFiles.txt --> Process large amount of text files for restricetd words.
 
-"# System design" 
+
+
+**"# System design" **
 
 **1. Tiny URL (Asked Three times)**
 

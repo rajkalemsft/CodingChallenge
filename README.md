@@ -1,5 +1,12 @@
 "# Coding Challenge" 
 
+1. WebCrawler.txt --> Search for pre-defined strings, sort and order by the top 'N' finds.
+
+2. InMemoryKeyValueStore.txt --> Implement an in-memory key-value store, for storing a value in a specific path.
+
+3. StreamingData.txt --> Process stream of integers, store and preiodically look up the rank of a given number.
+
+4. ReadactFiles.txt --> Process large amount of text files for restricetd words.
 
 "# System design" 
 

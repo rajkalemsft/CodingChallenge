@@ -15,7 +15,8 @@ Design a deployment platform to be able to deploy the subscribed services to con
       
       3. Keep track of all historical deployment logs
       
-      4. Deployer has no knowledge of the actual deployment process in other words all the deployment automation is provided by the owning team. Job is only to execute the deployer provided by the onboarded team. 
+      4. Deployer has no knowledge of the actual deployment process in other words all the deployment automation is provided by the owning team. 
+         Job is only to execute the deployer provided by the onboarded team. 
       
       5. Service need to propogate the success/failure back to the CI/CD platform
       
